@@ -17,45 +17,41 @@
     <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
     <style>
         :root {
-            --mainTextColor: #333;
-            --mainLinkColor: #1565c0;
-            --mainBorderColor: #e0e0e0;
-            --mainBgColor: #bee9e6;
+            --TextColorMain: #333;
+            --LinkColorMain: #1565c0;
+            --BorderColorMain: #ddd1d1;
+            --BGMainColor: #bddad8;
 
             --fontfamily: Garamond;
         }
 
         * {
+            font-family: var(--fontFamily);
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: var(--fontFamily);
         }
 
         body {
-            background-color: var(--mainBgColor);
-            color: var(--mainTextColor);
-            line-height: 1.6;
             padding: 20px;
+            color: var(--TextColorMain);
+            line-height: 1.6;
+            background-color: var(--BGMainColor);
         }
 
         a {
-            color: var(--mainLinkColor);
             text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            color: var(--LinkColorMain);
         }
 
 
         #container--main {
-            max-width: 900px;
-            margin: auto;
-            background: #d3f0ee;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 20px;
             border-radius: 8px;
+            max-width: 901px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            background: #9ab5b4;
         }
 
         .section--page {
@@ -77,6 +73,10 @@
             overflow: hidden;
         }
 
+        .navbar-nav .nav-link:hover {
+            background-color: var(--BorderColorMain);
+        }
+
         .navbar-nav .nav-link {
             padding: 10px 15px;
             border-radius: 4px;
@@ -84,12 +84,8 @@
             transition: background-color 0.2s ease-in-out;
         }
 
-        .navbar-nav .nav-link:hover {
-            background-color: var(--mainBorderColor);
-        }
-
-        .line-break {
-            background-color: var(--mainBorderColor);
+        .the-line-breaker {
+            background-color: var(--BorderColorMain);
             height: 2px;
             margin: 20px 0;
         }
@@ -103,21 +99,35 @@
             overflow: hidden;
             border-right: 2px solid hsl(0, 0%, 80%);
             white-space: nowrap;
-            animation: typewriter 4s steps(44) 1s 1 normal both,
-                blinkTextCursor 500ms infinite;
+            animation: animationwriter 4s steps(44) 1s 1 normal both,
+                CursorToBlinkText 500ms infinite;
         }
 
-        @keyframes typewriter {
-            from {
-                width: 0;
-            }
 
-            to {
-                width: 710px;
-            }
+
+        .mybg-color-1 {
+            background-color: #8cabaa;
+            color: #050000;
         }
 
-        @keyframes blinkTextCursor {
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container-main-bt {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        footer#contact-info {
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            border-top: 1px solid var(--BorderColorMain);
+            background-color: var(--BGMainColor);
+        }
+
+        @keyframes CursorToBlinkText {
             from {
                 border-right-color: hsl(0, 0%, 80%);
             }
@@ -127,36 +137,28 @@
             }
         }
 
-        .bg-1 {
-            background-color: #cfeaf4;
-            color: #050000;
+        @keyframes animationwriter {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 710px;
+            }
         }
 
-        .container-fluid {
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-
-        footer#contact-info {
-            background-color: var(--mainBgColor);
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid var(--mainBorderColor);
-            margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .section--page {
-                padding-top: 1em;
-                padding-bottom: 1em;
+        @media (max-width: 769px) {
+            .navbar-nav .nav-link {
+                margin: 5px 0;
             }
 
             .navbar {
                 flex-direction: column;
             }
 
-            .navbar-nav .nav-link {
-                margin: 5px 0;
+            .section--page {
+                padding-top: 1em;
+                padding-bottom: 1em;
             }
         }
     </style>
@@ -164,27 +166,23 @@
 
 <body>
     <div id="container--main" class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark mybg-color-1">
             <a class="navbar-brand" href="#About">About<span class="sr-only">(current)</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div>
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="#qualifications">Qualifications </span></a>
-                    <a class="nav-item nav-link" href="#technical-skills">Technical Skills</a>
-                    <a class="nav-item nav-link" href="#work-Experience">Work Experience</a>
+                    <a class="nav-item nav-link" href="#technical-skills">Skills</a>
+                    <a class="nav-item nav-link" href="#work-Experience">Experience</a>
                     <a class="nav-item nav-link" href="#projects">Projects</a>
                     <a class="nav-item nav-link" href="#certificates">Certificates</a>
-                    <a class="nav-item nav-link disabled" href="waph.html">Course Introduction</a>
+                    <a class="nav-item nav-link disabled" href="waph.html">waph</a>
                 </div>
             </div>
         </nav>
 
         <section id="About" class="section--page text-center">
             <div id="wrapper--hero" class="section--page">
-                <div class="container-fluid bg-1 text-center">
+                <div class="container-main-bt mybg-color-1 text-center">
                     <img id="profile-pic" src="./images/headshot.jpg" alt="JAYANTH JAGARLAMUDI">
                     <div>
                         <h1 class="test">JAYANTH JAGARLAMUDI</h1>
@@ -204,35 +202,37 @@
         </section>
 
         <section id="qualifications" class="section--page">
-            <h2>Qualifications</h2>
-            <div class="container-fluid bg-1">
-                <p><strong>Master of Science, Information Technology </strong> August 2023 – May 2025</p>
-                <p>University of Cincinnati, Cincinnati, Ohio, United States</p>
+            <h2 style="color: hsl(189, 89%, 11%)">Qualifications</h2>
+            <div class="the-line-breaker"></div>
+            <div class="container-main-bt mybg-color-1">
+                <p><strong> Master of Science, Information Technology </strong> August 2023 – May 2025</p>
+                <p> University of Cincinnati, Cincinnati, Ohio, United States</p>
                 <br>
                 <p><strong> Bachelors of Technology, Electrical and Electronics Engineering </strong> August 2017 - July
                     2021</p>
-                <p>CMR College of Engineering &Technology, Hyderabad, Telangana, India</p>
+                <p> CMR College of Engineering &Technology, Hyderabad, Telangana, India</p>
             </div>
 
         </section>
 
         <section id="technical-skills" class="section--page">
-            <h2>Technical Skills</h2>
-
-            <div id="skills-app" class="container-fluid bg-1"></div>
+            <h2 style="color: hsl(189, 89%, 11%)">Skills</h2>
+            <div class="the-line-breaker"></div>
+            <div id="skills-app" class="container-main-bt mybg-color-1"></div>
 
         </section>
 
         <section id="work-Experience" class="section--page">
-            <h2>Work Experience</h2>
+            <h2 style="color: hsl(189, 89%, 11%)">Experience</h2>
 
-            <div class="line-break"></div>
-            <div class="container-fluid bg-1">
+            <div class="the-line-breaker"></div>
+            <div class="container-main-bt mybg-color-1">
                 <strong> Programmer Analyst | Cognizant Technology Solutions, Hyderabad, India </strong>
                 <p>July 2021 - August 2023</p>
-                <p>Experienced Salesforce Developer skilled in platform customization, workflow implementation, and UI
+                <i> Experienced Salesforce Developer skilled in platform customization, workflow implementation, and UI
                     enhancement. Proficient in Lightning web components, Visualforce, and Apex. Committed to fostering
-                    collaboration and providing technical support for seamless operations.</p>
+                    collaboration and providing technical support for seamless operations.</i>
+                <br>
                 <ul>
                     <li>Salesforce Developer with expertise in platform configuration, focusing on Workflows, Process
                         Builder, and Flow Builder for feature enhancement.</li>
@@ -247,28 +247,32 @@
         </section>
 
         <section id="projects" class="section--page">
-            <h2>Projects</h2>
+            <h2 style="color: hsl(189, 89%, 11%)">Projects</h2>
+            <div class="the-line-breaker"></div>
+            <ul>
+                <div class="container-main-bt mybg-color-1">
+                    <strong> Hospital Management System</strong>
+                    <li>Android application that is used to connect patients and doctors at one place with less paper
+                        work.
+                    </li>
+                    <li>Tools Used: Salesforce Platform </li>
+                </div>
 
-            <div class="container-fluid bg-1">
-                <strong>Hospital Management System</strong>
-                <li>Android application that is used to connect patients and doctors at one place with less paper work.
-                </li>
-                <li>Tools Used: Salesforce Platform </li>
-            </div>
-            <div class="line-break"></div>
-            <div class="container-fluid bg-1">
-                <strong>Secured Smart Healthcare Monitoring System based on IOT</strong>
-                <li>Track people and connect various services in the world through internet to collect, share, monitor,
-                    store and analyse the data.</li>
-                <li>Tools Used: Notepad++, IOT Kit</li>
-            </div>
+                <div class="container-main-bt mybg-color-1">
+                    <strong> Secured Smart Healthcare Monitoring System based on IOT</strong>
+                    <li>Track people and connect various services in the world through internet to collect, share,
+                        monitor,
+                        store and analyse the data.</li>
+                    <li>Tools Used: Notepad++, IOT Kit</li>
+                </div>
+            </ul>
 
         </section>
 
         <section id="certificates" class="section--page">
-            <h2>Certificates</h2>
-
-            <div class="container-fluid bg-1">
+            <h2 style="color: hsl(189, 89%, 11%)">Certificates</h2>
+            <div class="the-line-breaker"></div>
+            <div class="container-main-bt mybg-color-1">
                 <li><strong>Certified in “Salesforce Certified Administrator”</strong> JUN 2022.</li>
                 <li><strong>Certified in “Salesforce Certified Platform Developer”</strong> NOV 2021</li>
                 <li><strong>Certified in “Salesforce Certified App Builder”</strong>MAY 2023</li>
@@ -277,11 +281,12 @@
         </section>
 
         <section id="course-projects" class="section--page">
-            <h2>Course Projects</h2>
-            <div class="container-fluid bg-1"> <strong>Displaying Real Time Weather Updates</strong>
+            <h2 style="color: hsl(189, 89%, 11%)">Course Projects</h2>
+            <div class="the-line-breaker"></div>
+            <div class="container-main-bt mybg-color-1"> <strong>Displaying Real Time Weather Updates</strong>
                 <p id="weather"></p>
             </div>
-            <div class="container-fluid bg-1"><strong>Using Web API
+            <div class="container-main-bt mybg-color-1"><strong>Using Web API
                     Integration to Displaying Random Joke</strong>
 
                 <p id="joke-container"></p>
@@ -289,18 +294,22 @@
         </section>
 
         <section id="Technical requirements-1" class="section--page">
-            <h2>Technical requirements-1</h2>
-            <div id="digit-clock" style="color: red;"></div>
+            <h2 style="color: hsl(189, 89%, 11%)">Technical requirements-1</h2>
+            <div class="the-line-breaker"></div>
+            <p>digital-time</p>
+            <div id="digital-time-clock" style="color: red;"></div>
             <script>
-                function displayTime() {
-                    document.getElementById('digit-clock').innerHTML = "Current time:" + new Date();
+                function displayDigitalTime() {
+                    document.getElementById('digital-time-clock').innerHTML = "Current time:" + new Date();
                 }
-                setInterval(displayTime, 500);
+                setInterval(displayDigitalTime, 500);
             </script>
-            <div> <canvas id="analog-clock" width="150" height="150" style="background-color:#999"></canvas>
+            <br>
+            <p>analog-time</p>
+            <div> <canvas id="analog-time-clock" width="150" height="150" style="background-color:#999"></canvas>
                 <script src="https://waph-uc.github.io/clock.js"></script>
                 <script>
-                    var canvas = document.getElementById("analog-clock");
+                    var canvas = document.getElementById("analog-time-clock");
 
                     var ctx = canvas.getContext("2d");
 
@@ -309,8 +318,8 @@
                     ctx.translate(radius, radius);
                     radius = radius * 0.9;
 
-                    setInterval(drawClock, 1000);
-                    function drawClock() {
+                    setInterval(ClockDraw, 1000);
+                    function ClockDraw() {
                         drawFace(ctx, radius);
 
                         drawNumbers(ctx, radius);
@@ -318,10 +327,12 @@
                         drawTime(ctx, radius);
                     }</script>
             </div>
-            <div class="container-fluid bg-1">
-                <div id="email" onclick="showhideEmail()">Show my Email</div>
+            <br>
+            <p>Email</p>
+            <div class="container-main-bt mybg-color-1">
+                <div id="email-id" onclick="EmailHidden()">Show my Email</div>
                 <script>var shown = false;
-                    function showhideEmail() {
+                    function EmailHidden() {
                         if (shown) {
                             document.getElementById("email").innerHTML = "Show my email";
                             shown = false;
@@ -332,7 +343,7 @@
                                 "mail. uc.edu'>jagarljh" +
                                 "@" +
                                 "mail.uc.edu</a>";
-                            document.getElementById("email").innerHTML = myemail;
+                            document.getElementById("email-id").innerHTML = myemail;
                             shown = true;
                         }
                     }
@@ -353,10 +364,10 @@
             const weatherApiKey = 'e4bc361b15654fc7966f6590eca739a2';
             const weatherServiceUrl = `https://api.weatherbit.io/v2.0/current?&key=${weatherApiKey}&city=Cincinnati&country=US`;
 
-            $.get(weatherServiceUrl, function (response) {
-                const currentTemperature = response.data[0].temp;
-                const weatherCondition = response.data[0].weather.description;
-                $('#weather').html(`The Current Temperature in Cincinnati: ${currentTemperature}°C, ${weatherCondition}`);
+            $.get(weatherServiceUrl, function (res) {
+                const currentTemperature = res.data[0].temp;
+                const weatherCondition = res.data[0].weather.description;
+                $('#weather').html(`The Current Temperature and weather condition in Cincinnati: ${currentTemperature}°C, ${weatherCondition}`);
             });
         });
 
@@ -364,8 +375,8 @@
         function retrieveHumor() {
             $.get({
                 url: 'https://v2.jokeapi.dev/joke/Any',
-                success: function (response) {
-                    const humor = response.setup ? `${response.setup} ${response.delivery}` : response.joke;
+                success: function (res) {
+                    const humor = res.setup ? `${res.setup} ${res.delivery}` : res.joke;
                     $('#joke-container').html(humor);
                 },
                 error: function () {
