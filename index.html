@@ -361,7 +361,7 @@
         document.cookie = `lastVisit=${currentDate}; expires=${expirationDate.toUTCString()}; path=/`;
 
         $(document).ready(function () {
-            const weatherApiKey = 'e4bc361b15654fc7966f6590eca739a2';
+            const weatherApiKey = '94814af782aa49ff9233f3374c586ef6';
             const weatherServiceUrl = `https://api.weatherbit.io/v2.0/current?&key=${weatherApiKey}&city=Cincinnati&country=US`;
 
             $.get(weatherServiceUrl, function (res) {
